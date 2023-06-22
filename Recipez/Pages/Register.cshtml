@@ -1,5 +1,5 @@
 ﻿@page
-@model Recipez.Pages.LoginModel
+@model Recipez.Pages.RegisterModel
 @{
 }
 <head>
@@ -125,9 +125,9 @@
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->    
+    <!-- ##### Header Area End ##### -->
     <!-- ##### CTA Area Start ##### -->
-    <section class="cta-area bg-img bg-overlay" style="background-image: url(image/bg-img/bg4.jpg);">
+    <section >
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -136,20 +136,27 @@
                         <form method="post" class="row">
                             <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
                                 <div class="cta-content mb-3 text-center">
-                                    <h3 style="color:burlywood">LOGIN</h3>
+                                    <h3 style="color:burlywood">REGISTER</h3>
                                 </div>
                                 <h4 class="text-danger">@ViewData["Message"]</h4>
                                 <div class="mb-3 text-start">
                                     <input class="form-control" placeholder="Username" />
                                 </div>
                                 <div class="mb-3 text-start">
-                                    <input  class="form-control" type="password" placeholder="Password" />
+                                    <input class="form-control" type="password" placeholder="Password" />
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <input type="email" class="form-control" placeholder="Email" />
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <input class="form-control" placeholder="Address" />
+                                </div>
+                                <div class="mb-3 ">
+                                    <input type="date" class="form-control" placeholder="Birthday" />
                                 </div>
                                 <div class="mb-3 d-grid gap-2">
-                                    <button class="btn btn-primary" type="submit">Login</button>
-                                </div><div class="mb-3 d-grid gap-2">
-                                    <a href="" style="color:burlywood">Register</a>
-                                </div>
+                                    <button class="btn btn-primary" type="submit">Register</button>
+                                </div>                                
                             </div>
                         </form>
                     </div>
