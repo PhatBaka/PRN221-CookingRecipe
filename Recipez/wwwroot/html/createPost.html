@@ -1,0 +1,163 @@
+<!Doctype HTML>
+<html lang="en">
+
+<head>
+    <title>Create page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />    
+    <link rel="stylesheet" href="../css/shared.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-light bg-light sticky-top shadow">
+        <div class="container-fluid pl-5 pr-5 ml-4 mr-4">
+            <a class="navbar-brand d-flex justify-content-center align-items-center" href="./homepage.html">
+                <ion-icon class="mr-2" size="large" name="library-outline"></ion-icon>
+                <span>Event Management</span>
+            </a>
+            <!-- <a href="#">Login</a> -->
+            <form class="form-inline search-bar">
+                <div class="input-group search-bar">
+                    <input type="text" class="form-control" placeholder="Search something..."
+                        aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-primary d-flex justify-content-center align-items-center"
+                            type="button" id="button-addon2">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="dropdown">
+                <a href="./createPost.html" class="btn btn-outline-primary mr-2 d-inline-flex align-items-center" id="create-button">
+                    <ion-icon class="mr-1" name="add-circle-outline"></ion-icon>
+                    <span class="mb-1">Create event</span>
+                </a>
+                <span href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                    <img src="../image/default.png" width="40" height="40" alt="avatar" />
+                </span>
+                <div class="dropdown-menu dropdown-menu-right shadow-lg mt-2">
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                        <span class="ml-2">My profile</span>
+                    </a>
+                    <a href="" type="button" class="dropdown-item d-flex align-items-center" data-toggle="modal"
+                        data-target="#exampleModal">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <span class="ml-2">Change password</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item d-flex align-items-center" href="./login.html">
+                        <ion-icon class="ml-1" name="log-out-outline"></ion-icon>
+                        <span class="ml-2">Logout</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main content -->
+    <div class="container-fluid mt-5 pl-5 pr-5 mb-5">
+        <form>
+            <div class="row mr-4 ml-4">
+                <div class="col-8">
+                    <div class="border rounded shadow-sm p-4">
+                        <h4 class="font-weight-bold d-flex align-items-center justify-content-center"><ion-icon class="mt-1 mr-1" name="cube-outline"></ion-icon>Post's data</h4>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="title">Title of the post</label>
+                            <input type="text" class="form-control" id="title" placeholder="An eye-catching title..."/>
+                        </div>
+                        <div class="form-group">
+                            <label for="content" class="font-weight-bold">Content</label>
+                            <textarea rows="5" class="form-control" id="content"> </textarea>
+                        </div>
+                        <label class="font-weight-bold">Cover image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label id="customFileLabel" class="custom-file-label" for="customFile">Choose file</label>
+                        </div>
+                        <div class="rounded shadow-sm image-holder justify-content-center align-items-center mt-3 font-weight-bold">Preview your image here</div>
+                        <img src="" class="img-fluid" id="preview-image">
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="border rounded shadow-sm p-4">
+                        <h4 class="font-weight-bold d-flex align-items-center justify-content-center">
+                            <ion-icon class="mt-1 mr-1"name="settings-outline"></ion-icon>Settings
+                        </h4>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="title">Date</label>
+                            <input type="datetime-local" class="form-control" id="date"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="venue">Venue</label>
+                            <input type="text" class="form-control" id="venue" placeholder="Where will your event appear?"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="venue">Number of attendance</label>
+                            <input type="number" class="form-control" id="venue" value="0"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="category-select">Category</label>
+                            <select class="form-control" id="category-select">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <hr>
+                        <button class="btn btn-outline-primary btn-block" type="submit">Create</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Change your password</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="currentPassword">Current password</label>
+                            <input type="password" class="form-control" id="currentPassword" />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">New password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Re-enter password</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-outline-success btn-block mt-4">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src=" https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../js/site.js" defer></script>
+</body>
+
+</html>

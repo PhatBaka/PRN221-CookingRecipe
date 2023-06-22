@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33627.172
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Recipez", "Recipez.csproj", "{8DD29CFE-2F92-4D9E-A592-4944F95AD8A7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\DataAccess\DataAccess.csproj", "{6E005877-5CD7-474E-BA19-5FAE18C3FE7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "..\Repository\Repository.csproj", "{C48A4158-6271-457A-98C1-9015568D2CA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DD29CFE-2F92-4D9E-A592-4944F95AD8A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD29CFE-2F92-4D9E-A592-4944F95AD8A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD29CFE-2F92-4D9E-A592-4944F95AD8A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD29CFE-2F92-4D9E-A592-4944F95AD8A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E005877-5CD7-474E-BA19-5FAE18C3FE7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E005877-5CD7-474E-BA19-5FAE18C3FE7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E005877-5CD7-474E-BA19-5FAE18C3FE7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E005877-5CD7-474E-BA19-5FAE18C3FE7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C48A4158-6271-457A-98C1-9015568D2CA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C48A4158-6271-457A-98C1-9015568D2CA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C48A4158-6271-457A-98C1-9015568D2CA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C48A4158-6271-457A-98C1-9015568D2CA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {409B5E39-8A2C-458B-9E49-27F8A307AAC3}
+	EndGlobalSection
+EndGlobal

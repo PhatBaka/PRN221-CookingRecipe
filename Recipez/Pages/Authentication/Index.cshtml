@@ -1,0 +1,131 @@
+﻿@page
+@model Repository.Pages.Authentication.IndexModel
+@{
+    Layout = "";
+    ViewData["title"] = "Login";
+}
+<!Doctype html>
+<html lang="en">
+<head>
+    <title>Login page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="google-signin-client_id"
+          content="352453563794-m2rghllfstg46t78nji3huoi5urk0dvq.apps.googleusercontent.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/login.css" />
+    <link rel="stylesheet" href="~/css/shared.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+
+
+@if (TempData["noti"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-warning text-light">
+                <ion-icon name="settings-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["noti"]
+            </div>
+        </div>
+    </div>
+}
+@if (TempData["success"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-success text-light">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["success"]
+            </div>
+        </div>
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-danger text-light">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["error"]
+            </div>
+        </div>
+    </div>
+}
+<body class="d-flex justify-content-center align-items-center bg-image">
+    <form method="post" class="rounded p-5 position-relative bg-secondary" id="login-form">
+            <h2 class="font-weight-bold text-center mt-3 mb-3 align-top">Sign in</h2>
+            <h4 class="font-weight-light text-center">
+                Welcome to Flowers4U
+            </h4>
+            
+            <div class="form-group">
+                @*<label for="email">Email address</label>*@
+                <input type="email" class="form-control" id="email" placeholder="Username" asp-for="email">
+            </div>
+            <div class="form-group">
+                @*<label for="password">Password</label>*@
+                <input type="password" class="form-control" id="password" placeholder="Password" asp-for="password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+            <div class="mt-4 mb-4 bg-transparent">
+                <button class="btn btn-secondary btn-block" asp-page="./Create">Sign up</button>
+            </div>
+        </form>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="https://accounts.google.com/gsi/client" async defer></script>
+        <script>
+            function onSuccess(googleUser) {
+                var token = googleUser.credential;
+                document.getElementById("token").value = token;
+                document.getElementById("login-form").submit();
+            }
+        </script>
+</body>
+</html>
+<style>
+    ion-icon {
+        font-size: 24px;
+    }
+
+    body {
+        background-color: #4D6017;
+        background-blend-mode: lighten;
+        background: url('https://forestgreen.ie/wp-content/uploads/2021/10/Birth-Month-Flowers-Hero-1024x426.jpg') no-repeat center center fixed;
+        background-size: cover;
+    }
+
+    .btn-primary {
+        background-color: #9CAA00
+    }
+
+    .btn-secondary {
+        background-color: #5E6600
+    }
+
+</style>

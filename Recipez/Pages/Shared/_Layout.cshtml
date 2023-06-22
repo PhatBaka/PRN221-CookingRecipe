@@ -1,0 +1,194 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Flowers4U</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/shared.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/moment/moment.js"></script>
+</head>
+
+@if (TempData["noti"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-warning text-light">
+                <ion-icon name="settings-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["noti"]
+            </div>
+        </div>
+    </div>
+}
+@if (TempData["success"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-success text-light">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["success"]
+            </div>
+        </div>
+    </div>
+}
+@if (TempData["error"] != null)
+{
+    <div style="position: absolute; top: 20px; right: 20px; min-width: 300px; z-index: 2000;">
+        <div class="toast shadow-lg" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+            <div class="toast-header bg-danger text-light">
+                <ion-icon name="alert-circle-outline"></ion-icon>
+                <strong class="mr-auto ml-1">System</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span class="text-light" aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="toast-body">
+                @TempData["error"]
+            </div>
+        </div>
+    </div>
+}
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
+        <div class="container-fluid pl-5 pr-5 ml-4 mr-4">
+            <a class="navbar-brand d-flex justify-content-center align-items-center" asp-page="/Home/Index">
+                <ion-icon class="mr-2" size="large" name="flower"></ion-icon>
+                <span>Flowers4U</span>
+            </a>
+
+
+            @{
+                var uid = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                var role = User.FindFirst(ClaimTypes.Role)?.Value;
+
+                if (uid != null)
+                {
+                    @if (role is "Admin")
+                    {
+                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link" asp-page="/Customer/Index">User list</a>
+                                <a class="nav-link" asp-page="/Flower/Index">Flower bouquet list</a>
+                                <a class="nav-link" asp-page="/Orders/Index">Order list</a>
+                            </div>
+                        </div>
+                    }
+                    @if (role is "Customer")
+                    {
+                            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                            <div class="navbar-nav">
+                                <a class="nav-link" asp-page="/Home/Index">Flower bouquet list</a>
+                                <a class="nav-link" asp-page="/Orders/Create">Create order</a>
+                                <a class="nav-link" asp-page="/Orders/IndexUserPost">Owned orders</a>
+                            </div>
+                        </div>
+                    }
+                    //<a type="button" href="/Home/UserProfile">
+                    //    <ion-icon name="person-circle-outline"></ion-icon>
+                    //    <span class="ml-2">My profile</span>
+                    //</a>
+                    //<a type="button" data-toggle="modal"
+                    //   data-target="#exampleModal">
+                    //    <ion-icon name="lock-closed-outline"></ion-icon>
+                    //    <span class="ml-2">Change password</span>
+                    //</a>
+                    //<a type="button" href="/Authentication/Logout">
+                    //    <ion-icon class="ml-1" name="log-out-outline"></ion-icon>
+                    //    <span class="ml-2">Logout</span>
+                    //</a>
+                    <div class="dropdown">
+                        <span href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <ion-icon class="login-icon" name="person-circle" style="color: #78d8ff;"></ion-icon>
+                        </span>
+                        <div class="dropdown-menu dropdown-menu-right shadow-lg mt-2">
+                            <a class="dropdown-item d-flex align-items-center" href="/Home/UserProfile">
+                                <ion-icon name="person-circle-outline"></ion-icon>
+                                <span class="ml-2">My profile</span>
+                            </a>
+                            
+                            <a type="button" class="dropdown-item d-flex align-items-center" data-toggle="modal"
+                               data-target="#exampleModal">
+                                <ion-icon name="lock-closed-outline"></ion-icon>
+                                <span class="ml-2">Change password</span>
+                            </a>
+                            
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item d-flex align-items-center" href="/Authentication/Logout">
+                                <ion-icon class="ml-1" name="log-out-outline"></ion-icon>
+                                <span class="ml-2">Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <a asp-page="/Authentication/Index" class="btn btn-outline-primary mr-2 d-inline-flex align-items-center" id="login-button">
+                        <ion-icon class="mr-1" name="log-in-outline"></ion-icon>
+                        <span class="mb-1">Login</span>
+                    </a>
+                }
+            }
+        </div>
+
+    </nav>
+
+    @if (uid != null)
+    {
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Change your password</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" asp-page="/Home/ChangePassword">
+                            <input type="hidden" name="uid" value="@uid" />
+                            <div class="form-group">
+                                <label for="currentPassword">Current password</label>
+                                <input type="password" class="form-control" id="currentPassword" />
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New password</label>
+                                <input type="password" class="form-control" id="newPassword" name="newPassword">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Re-enter password</label>
+                                <input type="password" class="form-control" id="confirmPassword">
+                            </div>
+                            <button type="submit" class="btn btn-outline-success btn-block mt-4">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    @RenderBody()
+    @RenderSection("Scripts", required: false)
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

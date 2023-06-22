@@ -1,0 +1,75 @@
+﻿@page
+@model Recipez.Pages.Home.UserProfile
+@{
+}
+
+<div class="container d-flex align-items-center justify-content-center" style="height: calc(100vh - 58px); ">
+    <form method="post">
+        <input type="hidden" asp-for="user.CustomerId" value="@Model.user.CustomerId" />
+        <input type="hidden" asp-for="user.CustomerName" value="@Model.user.CustomerName" />
+        <input type="hidden" asp-for="user.City" value="@Model.user.City" />
+        <input type="hidden" asp-for="user.Country" value="@Model.user.Country" />
+        <input type="hidden" asp-for="user.Password" value="@Model.user.Password" />
+        <input type="hidden" asp-for="user.Birthday" value="@Model.user.Birthday" />
+
+        <div class="shadow-sm p-3 user-info rounded border">
+            <div class="row p-4">
+               
+                <div class="col-md-8 pl-4 border-left">
+                    <h4>
+                        @Model.user.CustomerName's information
+                    </h4>
+                    <div class="form-row gx-4">
+                        <div class="form-group col-md-12" data-toggle="tooltip" data-placement="top" title="You cannot change your email!">
+                            <label for="Email">Email</label>
+                            <div class="form-control" id="email" readonly>@Model.user.Email</div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Name">Name</label>
+                            <input asp-for="@Model.user.CustomerName" type="text" class="form-control" id="name" value="@Model.user.CustomerName" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Password">Password</label>
+                            <input asp-for="@Model.user.Password" type="password" class="form-control" id="password" value="@Model.user.Password" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="City">City</label>
+                            <input asp-for="@Model.user.City" type="text" class="form-control" id="city" value="@Model.user.City" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Country">Country</label>
+                            <input asp-for="@Model.user.Country" type="text" class="form-control" id="country" value="@Model.user.Country" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="Birthday">Birthday</label>
+                            <input asp-for="@Model.user.Birthday" type="date" class="form-control" id="dob" value="@Model.user.Birthday" />
+                        </div>
+                        
+@*                        <div class="form-group col-md-3">
+                            <label for="Status">Google Authenticate</label>
+                            @if (Model.user.IsGoogleAuthenticate != true)
+                            {
+                                <div class="d-flex align-items-center" style="gap: 8px; padding-top: 6px; color: #dc3545!important;">
+                                    <ion-icon name="close-circle-outline"></ion-icon>
+                                    No
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex align-items-center" style="gap: 8px; padding-top: 6px; color: #28a745;">
+                                    <ion-icon name="shield-checkmark-outline"></ion-icon>
+                                    Yes
+                                </div>
+                            }
+                        </div>*@
+                        <div class="col-md-12 d-flex" style="gap: 8px;">
+                            <button id="register" type="submit" class="btn btn-primary d-flex align-items-center" style="gap: 8px;">Save profile</button>
+                            <a href="#" class="btn btn-light">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,17 @@
+.card.event {
+    transition: all .5s;
+}
+
+.card.event:hover {
+    transform: scale(1.02);
+    box-shadow: rgba(24, 144, 255, 0.2) 0px 7px 29px 0px;
+}
+
+.event-time, .event-people {
+    color: #1890ff;
+}
+
+#location {
+    color: rgb(255, 0, 0);
+    border-color: red;
+}
