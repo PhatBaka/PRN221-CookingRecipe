@@ -308,3 +308,4 @@ C:\Users\HUNG\OneDrive\Desktop\clone\PRN221-CookingRecipe\Recipez\obj\Debug\net5
 C:\Users\HUNG\OneDrive\Desktop\clone\PRN221-CookingRecipe\Recipez\obj\Debug\net5.0\Recipez.genruntimeconfig.cache
 C:\Users\HUNG\OneDrive\Desktop\clone\PRN221-CookingRecipe\Recipez\obj\Debug\net5.0\ref\Recipez.dll
 C:\Users\HUNG\OneDrive\Desktop\clone\PRN221-CookingRecipe\Recipez\obj\Debug\net5.0\Razor\Pages\Home.cshtml.g.cs
+C:\Users\HUNG\OneDrive\Desktop\clone\PRN221-CookingRecipe\Recipez\obj\Debug\net5.0\Razor\Pages\ListRecipe.cshtml.g.cs
