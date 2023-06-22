@@ -6047,11 +6047,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj",
+      "projectUniqueName": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj",
       "projectName": "DataAccess",
-      "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj",
+      "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\obj\\",
+      "outputPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

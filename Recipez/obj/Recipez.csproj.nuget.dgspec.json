@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Recipez\\Recipez.csproj": {}
+    "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Recipez\\Recipez.csproj": {}
   },
   "projects": {
-    "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj": {
+    "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj",
+        "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\obj\\",
+        "outputPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -82,14 +82,14 @@
         }
       }
     },
-    "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Recipez\\Recipez.csproj": {
+    "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Recipez\\Recipez.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Recipez\\Recipez.csproj",
+        "projectUniqueName": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Recipez\\Recipez.csproj",
         "projectName": "Recipez",
-        "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Recipez\\Recipez.csproj",
+        "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Recipez\\Recipez.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Recipez\\obj\\",
+        "outputPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Recipez\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,11 +111,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj"
+              "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj"
               },
-              "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\Repository.csproj": {
-                "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\Repository.csproj"
+              "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj": {
+                "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj"
               }
             }
           }
@@ -174,14 +174,14 @@
         }
       }
     },
-    "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\Repository.csproj": {
+    "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\Repository.csproj",
+        "projectUniqueName": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\Repository.csproj",
+        "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\Repository\\obj\\",
+        "outputPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -203,8 +203,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "D:\\PhatBaka\\Documents\\C#\\PRN221\\Recipez\\DataAccess\\DataAccess.csproj"
+              "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj": {
+                "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj"
               }
             }
           }
