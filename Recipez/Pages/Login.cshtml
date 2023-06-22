@@ -1,5 +1,5 @@
 ﻿@page
-@model Recipez.Pages.ListRecipeModel
+@model Recipez.Pages.LoginModel
 @{
 }
 <head>
@@ -44,7 +44,7 @@
     </div>
 
     <!-- ##### Header Area Start ##### -->
-    <header class="header-area">        
+    <header class="header-area">
         <!-- Top Header Area -->
         <div class="top-header-area">
             <div class="container h-100">
@@ -104,12 +104,12 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li class="active"><a href="/Home">Home</a></li>                                    
+                                    <li class="active"><a href="/Home">Home</a></li>
                                     <li>
-                                        <a href="/ListRecipe">Recipe</a>                                        
+                                        <a href="/ListRecipe">Recipe</a>
                                     </li>
                                     <li><a href="">Meal Plan</a></li>
-                                    <li><a href="">Post Recipe</a></li>                                    
+                                    <li><a href="">Post Recipe</a></li>
                                 </ul>
 
                                 <!-- Newsletter Form -->
@@ -125,136 +125,39 @@
             </div>
         </div>
     </header>
-    <!-- ##### Header Area End ##### -->
-    <!-- ##### Best Receipe Area Start ##### -->
-    <section class="best-receipe-area">
-        <div class="container">
-            <div class="row">
+    <!-- ##### Header Area End ##### -->    
+    <!-- ##### CTA Area Start ##### -->
+    <section class="cta-area bg-img bg-overlay" style="background-image: url(image/bg-img/bg4.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
                 <div class="col-12">
-                    <div class="section-heading">
-                        <h3>The best Recipes</h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r1.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Sushi Easy Recipe</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <!-- Cta Content -->
+                    <div class="cta-content text-center">
+                        <form method="post" class="row">
+                            <div class="col-lg-4 offset-lg-4 pt-4 pb-4 border">
+                                <div class="cta-content mb-3 text-center">
+                                    <h3 style="color:burlywood">LOGIN</h3>
+                                </div>
+                                <h4 class="text-danger">@ViewData["Message"]</h4>
+                                <div class="mb-3 text-start">
+                                    <input class="form-control" placeholder="Email" />
+                                </div>
+                                <div class="mb-3 text-start">
+                                    <input  class="form-control" type="password" placeholder="Password" />
+                                </div>
+                                <div class="mb-3 d-grid gap-2">
+                                    <button class="btn btn-primary" type="submit">Login</button>
+                                </div><div class="mb-3 d-grid gap-2">
+                                    <a href="" style="color:burlywood">Register</a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r2.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Burger</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r3.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Vegan Smoothie</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r4.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Calabasa soup</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r5.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Homemade Breakfast</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="single-best-receipe-area mb-30">
-                        <img src="image/bg-img/r6.jpg" alt="">
-                        <div class="receipe-content">
-                            <a href="receipe-post.html">
-                                <h5>Healthy Fruit Desert</h5>
-                            </a>
-                            <div class="ratings">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- ##### Best Receipe Area End ##### -->
+    <!-- ##### CTA Area End ##### -->
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area">
         <div class="container h-100">
