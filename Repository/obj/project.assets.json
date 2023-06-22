@@ -6031,23 +6031,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {},
+    "C:\\Users\\HUNG\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
+      "projectUniqueName": "C:\\Users\\HUNG\\OneDrive\\Desktop\\clone\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
       "projectName": "Repository",
-      "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\Repository\\obj\\",
+      "projectPath": "C:\\Users\\HUNG\\OneDrive\\Desktop\\clone\\PRN221-CookingRecipe\\Repository\\Repository.csproj",
+      "packagesPath": "C:\\Users\\HUNG\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HUNG\\OneDrive\\Desktop\\clone\\PRN221-CookingRecipe\\Repository\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\HUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6056,15 +6056,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "D:\\PhatBaka\\Documents\\GitHub\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\HUNG\\OneDrive\\Desktop\\clone\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\HUNG\\OneDrive\\Desktop\\clone\\PRN221-CookingRecipe\\DataAccess\\DataAccess.csproj"
             }
           }
         }
@@ -6100,7 +6099,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

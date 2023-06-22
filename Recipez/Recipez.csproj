@@ -28,6 +28,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\fonts\classy.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\fonts\icomoon.svg" />
+    <None Include="wwwroot\image\core-img\burger.svg" />
+    <None Include="wwwroot\scss\style.scss" />
+    <None Include="wwwroot\scss\_fonts.scss" />
+    <None Include="wwwroot\scss\_mixin.scss" />
+    <None Include="wwwroot\scss\_responsive.scss" />
+    <None Include="wwwroot\scss\_theme_color.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
