@@ -12,6 +12,7 @@ namespace DataAccess.DataModels
             Favorites = new HashSet<Favorite>();
             Meals = new HashSet<Meal>();
             Ratings = new HashSet<Rating>();
+            Recipes = new HashSet<Recipe>();
         }
 
         public int AccountId { get; set; }
@@ -29,5 +30,6 @@ namespace DataAccess.DataModels
         public virtual ICollection<Favorite> Favorites { get; set; }
         public virtual ICollection<Meal> Meals { get; set; }
         public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Recipe> Recipes { get; set; }
     }
 }

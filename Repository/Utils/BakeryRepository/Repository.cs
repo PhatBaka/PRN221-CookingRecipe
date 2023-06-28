@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 using Repository.Utils.BakeryRepository.Interface;
 using DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
+using DataAccess.DataModels;
 
 namespace Repository.Utils.BakeryRepository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
 
-        private readonly FUFlowerBouquetManagementContext _db;
+        private readonly CookingRecipeContext _db;
         internal readonly DbSet<T> DbSet;
 
-        public Repository(FUFlowerBouquetManagementContext db)
+        public Repository(CookingRecipeContext db)
         {
             _db = db;
             DbSet = _db.Set<T>();

@@ -35,7 +35,7 @@ namespace DataAccess.DataModels
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=ANAIS\\KELLION;Database=CookingRecipe;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("server =(local); database = CookingRecipe;uid=sa;pwd=12345;");
             }
         }
 
@@ -225,14 +225,24 @@ namespace DataAccess.DataModels
 
                 entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
 
+                entity.Property(e => e.AccountId).HasColumnName("AccountID");
+
                 entity.Property(e => e.Difficulty)
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsFixedLength(true);
 
+                entity.Property(e => e.Img).HasMaxLength(50);
+
                 entity.Property(e => e.RecipeName)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Account)
+                    .WithMany(p => p.Recipes)
+                    .HasForeignKey(d => d.AccountId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Recipe_Account");
             });
 
             modelBuilder.Entity<RecipeDetail>(entity =>
@@ -244,6 +254,8 @@ namespace DataAccess.DataModels
                 entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
 
                 entity.Property(e => e.IngredientId).HasColumnName("IngredientID");
+
+                entity.Property(e => e.Quantity).HasMaxLength(50);
 
                 entity.HasOne(d => d.Ingredient)
                     .WithMany(p => p.RecipeDetails)

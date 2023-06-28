@@ -1,0 +1,21 @@
+﻿using DataAccess.DataModels;
+using Repository.IngredientCategoryModule.Interface;
+using Repository.Utils.BakeryRepository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.IngredientCategoryModule
+{
+    public class IngredientCategoryRepository:Repository<IngredientCategory>,IIngredientCategoryRepository
+    {
+        private readonly CookingRecipeContext context;
+
+        public IngredientCategoryRepository(CookingRecipeContext db) : base(db)
+        {
+            context = db;
+        }
+    }
+}

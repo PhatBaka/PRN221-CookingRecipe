@@ -14,7 +14,7 @@ namespace DataAccess.DataModels
 
         public int IngredientId { get; set; }
         public int IngredientName { get; set; }
-        public double NumberOfcalorie { get; set; }
+        public double? NumberOfcalorie { get; set; }
         public int IngredientCategoryId { get; set; }
 
         public virtual IngredientCategory IngredientCategory { get; set; }

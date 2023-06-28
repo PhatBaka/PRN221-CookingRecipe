@@ -1,11 +1,3 @@
-using Repository.CategoryModule;
-using Repository.CategoryModule.Interface;
-using Repository.PostModule.Interface;
-using Repository.PostModule;
-using Repository.ProductModule.Interface;
-using Repository.ProductModule;
-using Repository.UserModule;
-using Repository.UserModule.Interface;
 using DataAccess.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -14,10 +6,17 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
+using Repository.IngredientCategoryModule;
+using Repository.IngredientCategoryModule.Interface;
+using Repository.IngredientModule;
+using Repository.IngredientModule.Interface;
+using Repository.RecipeDetailModule;
+using Repository.RecipeDetailModule.Interface;
+using Repository.RecipeModule;
+using Repository.RecipeModule.Interface;
+using Repository.StepModule;
+using Repository.StepModule.Interface;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Recipez
 {
@@ -43,25 +42,21 @@ namespace Recipez
                     e.MaximumReceiveMessageSize = 102400000;
                 });
             //Add scope and dependency injection
-            //User Module
-            services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IUserService, UserService>();
-            //Category Module
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICategoryService, CategoryService>();
-            //Post Module
-            services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddScoped<ICategoryService, CategoryService>();
-
-            services.AddScoped<IFlowerRepository, FlowerRepository>();
-            services.AddScoped<IFlowerService, FlowerService>();
-
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductService, ProductService>();
-
-            services.AddDbContext<FUFlowerBouquetManagementContext>(
-                opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
-            );
+            //Recipe Module
+            services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IRecipeService, RecipeService>();
+            //Ingredient Module
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
+            services.AddScoped<IIngredientService, IngredientService>();
+            //Ingredient Category Module
+            services.AddScoped<IIngredientCategoryRepository, IngredientCategoryRepository>();
+            services.AddScoped<IIngredientCategoryService, IngredientCategoryService>();
+            //Step Module
+            services.AddScoped<IStepRepository, StepRepository>();
+            services.AddScoped<IStepService, StepService>();
+            //Recipe Detail Module
+            services.AddScoped<IRecipeDetailRepository, RecipeDetailRepository>();
+            services.AddScoped<IRecipeDetailService, IRecipeDetailService>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
             {
