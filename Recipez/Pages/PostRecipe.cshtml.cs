@@ -1,10 +1,9 @@
-using DataAccess.DataModels;
+using DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Repository.IngredientCategoryModule.Interface;
 using Repository.RecipeModule.Interface;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,13 +33,13 @@ namespace Recipez.Pages
         }
         public IActionResult OnPost()
         {
-            List<Ingredient> ingredients;
+            List<Ingredient> ingredients=new List<Ingredient>();
             string[] ingredientID=listIngredientID.Split(",");
             foreach(var id in ingredientID)
             {
-
+                ingredients.Add(new Ingredient { IngredientName = Request.Form["ingredientName"+id] });
             }
-            List<Step> steps;
+            List<Step> steps=new List<Step>();
             recipeService.AddRecipe(recipe);
             return RedirectToPage("./Home");
         }

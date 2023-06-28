@@ -1,6 +1,6 @@
-﻿using DataAccess.DataModels;
+﻿using DataAccess.Models;
 using Repository.IngredientCategoryModule.Interface;
-using Repository.Utils.BakeryRepository;
+using Repository.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,5 +1,5 @@
-﻿using DataAccess.DataModels;
-using Repository.Utils.BakeryRepository.Interface;
+﻿using DataAccess.Models;
+using Repository.Utils.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Repository.IngredientCategoryModule.Interface
 {
-    public interface IIngredientCategoryRepository:IRepository<IngredientCategory>
+    public interface IIngredientCategoryRepository: IRepository<IngredientCategory>
     {
+
     }
 }

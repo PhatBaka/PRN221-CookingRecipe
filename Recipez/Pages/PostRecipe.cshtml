@@ -28,13 +28,13 @@
             <div class ="col-12" style="font-weight:bold"> Ingredient: </div>
                                         <br/>
                                                         <div class="col-12 col-lg-6" >
-                                            <input type="text" class="form-control" id="ingredientName`+ingredientRow+`" placeholder="Ingredient Name">
+                                                            <input type="text" class="form-control" name="ingredientName`+ ingredientRow + `" id="ingredientName` + ingredientRow + `" placeholder="Ingredient Name">
                                         </div>
                                         <div class="col-12 col-lg-6">
-                                                    <input type="text" class="form-control" id="quantity`+ ingredientRow + `" placeholder="Quantity">
+                                                            <input type="text" class="form-control" name="quantity`+ ingredientRow + `" id="quantity` + ingredientRow + `" placeholder="Quantity">
                                         </div>
                                                 <div class="col-12">
-                                                    <select class="form-control" name="ingredientCategory" id="ingredientCategory`+ ingredientRow + `">
+                                                            <select class="form-control" name="ingredientCategory`+ ingredientRow + `" id="ingredientCategory` + ingredientRow + `">
                                                 <option value="Egg">Egg</option>
                                                 <option value="Beef">Beef</option>
                                                 <option value="Vegetable">Vegetable</option>
@@ -228,13 +228,13 @@
                                 <div class ="col-12" style="font-weight:bold"> Ingredient:</div>
                                 <br/>
                                 <div class="col-12 col-lg-6">
-                                    <input type="text" class="form-control" id="ingredientName1" placeholder="Ingredient Name">
+                                    <input type="text" class="form-control" name="ingredientName1" id="ingredientName1" placeholder="Ingredient Name">
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <input type="text" class="form-control" id="quantity1" placeholder="Quantity">
+                                    <input type="text" class="form-control" name="quantity1" id="quantity1" placeholder="Quantity">
                                 </div>
                                 <div class="col-12">                                    
-                                    <select class="form-control" name="ingredientCategory" id="ingredientCategory1" asp-items="ViewBag.CategoryId">
+                                    <select class="form-control" name="ingredientCategory1" id="ingredientCategory1" asp-items="ViewBag.CategoryId">
                                         <option value="Egg">Egg</option>
                                         <option value="Beef">Beef</option>
                                         <option value="Vegetable">Vegetable</option>

@@ -23,7 +23,7 @@ namespace Recipez
 
                 try
                 {
-                    var context = services.GetRequiredService<FUFlowerBouquetManagementContext>();
+                    var context = services.GetRequiredService<CookingRecipeContext>();
                 }
                 catch (Exception e)
                 {

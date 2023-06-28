@@ -1,14 +1,10 @@
-﻿using DataAccess.DataModels;
-using Repository.Utils.BakeryRepository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DataAccess.Models;
+using Repository.Utils.Interface;
 
 namespace Repository.StepModule.Interface
 {
-    public interface IStepRepository:IRepository<Step>
+    public interface IStepRepository : IRepository<Step>
     {
+        public int GetMaxID(int recipeID);
     }
 }

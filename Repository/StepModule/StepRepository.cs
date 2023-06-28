@@ -1,20 +1,22 @@
-﻿using DataAccess.DataModels;
+﻿using DataAccess.Models;
 using Repository.StepModule.Interface;
-using Repository.Utils.BakeryRepository;
-using System;
-using System.Collections.Generic;
+using Repository.Utils;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.StepModule
 {
     public class StepRepository : Repository<Step>, IStepRepository
     {
-        private readonly CookingRecipeContext context;
+        private readonly CookingRecipeContext _db;
+
         public StepRepository(CookingRecipeContext db) : base(db)
         {
-            context = db;
+            _db = db;
+        }
+
+        public int GetMaxID(int recipeID)
+        {
+            return _db.Steps.Where(u => u.RecipeId == recipeID).Max(u => u.StepIndex ) + 1; 
         }
     }
 }

@@ -1,21 +1,22 @@
-﻿using DataAccess.DataModels;
+﻿using DataAccess.Models;
 using Repository.IngredientModule.Interface;
-using Repository.Utils.BakeryRepository;
-using System;
-using System.Collections.Generic;
+using Repository.Utils;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.IngredientModule
 {
-    public class IngredientRepository:Repository<Ingredient>,IIngredientRepository
+    public class IngredientRepository : Repository<Ingredient>, IIngredientRepository
     {
-        private readonly CookingRecipeContext context;
+        private readonly CookingRecipeContext _db;
 
         public IngredientRepository(CookingRecipeContext db) : base(db)
         {
-            context = db;
+            _db = db;
+        }
+
+        public int GetMaxID()
+        {
+            return _db.Ingredients.Max(u => u.IngredientId ) + 1; 
         }
     }
 }

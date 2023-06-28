@@ -1,18 +1,38 @@
-﻿using Repository.StepModule.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
+using Repository.StepModule.Interface;
+using DataAccess.Models;
 
 namespace Repository.StepModule
 {
-    public class StepService:IStepService
+    public class StepService : IStepService
     {
-        private readonly IStepRepository stepRepository;
-        public StepService(IStepRepository stepRepository)
+        private readonly IStepRepository _StepRepository;
+
+        public StepService(IStepRepository StepRepository)
         {
-            this.stepRepository = stepRepository;
+            _StepRepository = StepRepository;
+        }
+
+        public Task<Step> AddNewStep(Step newStep)
+        {
+            throw new NotImplementedException();
+        }
+
+        public ICollection<Step> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Step GetStepById(int CustomerId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateStep(Step StepUpdate)
+        {
+            throw new NotImplementedException();
         }
     }
 }

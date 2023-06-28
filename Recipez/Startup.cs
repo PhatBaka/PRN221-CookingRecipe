@@ -56,15 +56,15 @@ namespace Recipez
             services.AddScoped<IStepService, StepService>();
             //Recipe Detail Module
             services.AddScoped<IRecipeDetailRepository, RecipeDetailRepository>();
-            services.AddScoped<IRecipeDetailService, IRecipeDetailService>();
-
+            services.AddScoped<IRecipeDetailService, RecipeDetailService>();
+            
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
             {
-                opt.LoginPath = "/Authentication/Index";
+                opt.LoginPath = "/Authentication/Login";
                 opt.AccessDeniedPath = "/Denied";
             });
 
-            services.Configure<List<Customer>>(Configuration.GetSection("admin"));
+            services.Configure<List<Account>>(Configuration.GetSection("admin"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

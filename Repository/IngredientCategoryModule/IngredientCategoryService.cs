@@ -1,4 +1,4 @@
-﻿using DataAccess.DataModels;
+﻿using DataAccess.Models;
 using Repository.IngredientCategoryModule.Interface;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Repository.IngredientCategoryModule
 {
-    public class IngredientCategoryService:IIngredientCategoryService
+    public class IngredientCategoryService : IIngredientCategoryService
     {
         private readonly IIngredientCategoryRepository repository;
         public IngredientCategoryService(IIngredientCategoryRepository ingredientCategoryRepository)

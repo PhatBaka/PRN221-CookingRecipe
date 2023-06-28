@@ -5,8 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FlowerModule\**" />
     <Compile Remove="Utils\Repository\**" />
+    <EmbeddedResource Remove="FlowerModule\**" />
     <EmbeddedResource Remove="Utils\Repository\**" />
+    <None Remove="FlowerModule\**" />
     <None Remove="Utils\Repository\**" />
   </ItemGroup>
 
