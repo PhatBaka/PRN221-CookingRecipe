@@ -142,7 +142,7 @@
 
     <div class="receipe-post-area section-padding-80">
 
-        <!-- Receipe Post Search -->
+        @*<!-- Receipe Post Search -->
         <div class="receipe-post-search mb-80">
             <div class="container">
                 <form action="#" method="post">
@@ -174,17 +174,23 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>*@
 
         <!-- Receipe Slider -->
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="receipe-slider owl-carousel">
+                    @*<div class="receipe-slider owl-carousel">
                         <img src="image/bg-img/bg5.jpg" alt="">
                         <img src="image/bg-img/bg5.jpg" alt="">
                         <img src="image/bg-img/bg5.jpg" alt="">
-                    </div>
+                    </div>*@
+                    @if(Model.recipe.Img!=null){
+                        <img src="@Model.recipe.Img" alt="">
+                    }
+                    else{
+                        <img src="image/bg-img/bg5.jpg" alt="">
+                    }
                 </div>
             </div>
         </div>
@@ -195,27 +201,27 @@
 
                 <div class="row">
                     <div class="col-12 col-md-8">
-                        <div class="receipe-headline my-5">
-                            <span>April 05, 2018</span>
-                            <h2>Vegetarian cheese salad</h2>
-                            <div class="receipe-duration">
+                        <div class="receipe-headline my-5">                            
+                            <h2>@Model.recipe.RecipeName</h2>
+                            <span>Difficulty: @Model.recipe.Difficulty</span>
+                            @*<div class="receipe-duration">
                                 <h6>Prep: 15 mins</h6>
                                 <h6>Cook: 30 mins</h6>
                                 <h6>Yields: 8 Servings</h6>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
 
                     <div class="col-12 col-md-4">
                         <div class="receipe-ratings text-right my-5">
-                            <div class="ratings">
+                            @*<div class="ratings">
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star" aria-hidden="true"></i>
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
-                            </div>
-                            <a href="#" class="btn delicious-btn">For Begginers</a>
+                            </div>*@
+                            <a href="#" class="btn delicious-btn">Add to Favorite</a>
                         </div>
                     </div>
                 </div>
@@ -223,71 +229,30 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>01.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>02.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>03.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
-                        <!-- Single Preparation Step -->
-                        <div class="single-preparation-step d-flex">
-                            <h4>04.</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nec varius dui. Suspendisse potenti. Vestibulum ac pellentesque tortor. Aenean congue sed metus in iaculis. Cras a tortor enim. Phasellus posuere vestibulum ipsum, eget lobortis purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                        </div>
+                        @if(Model.steps!=null){
+                            foreach(var step in Model.steps){
+                                <div class="single-preparation-step d-flex">
+                                    <h4>@step.Index</h4>
+                                    @*<p>@step.StepName</p>
+                                    <br/>*@
+                                    <p>@step.Description</p>
+                                </div>
+                            }
+                        }                        
                     </div>
 
                     <!-- Ingredients -->
                     <div class="col-12 col-lg-4">
                         <div class="ingredients">
                             <h4>Ingredients</h4>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck1">4 Tbsp (57 gr) butter</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck2">2 large eggs</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck3">2 yogurt containers granulated sugar</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck4">1 vanilla or plain yogurt, 170g container</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                               
-                                <label style="font-weight:bold" for="customCheck5">2 yogurt containers unbleached white flour</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck6">1.5 yogurt containers milk</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck7">1/4 tsp cinnamon</label>
-                            </div>
-
-                            <!-- Custom Checkbox -->
-                            <div class="custom-control custom-checkbox">                                
-                                <label style="font-weight:bold" for="customCheck8">1 cup fresh blueberries </label>
-                            </div>
+                            @if(Model.recipeDetails!=null){
+                                foreach (var detail in Model.recipeDetails)
+                                {
+                                    <div class="custom-control custom-checkbox">
+                                        <label style="font-weight:bold" for="customCheck1">@detail.Quantity @detail.Ingredient.IngredientName</label>
+                                    </div>
+                                }
+                            }                            
                         </div>
                     </div>
                 </div>

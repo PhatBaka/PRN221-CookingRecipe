@@ -9,6 +9,7 @@ namespace Repository.RecipeModule.Interface
     public interface IRecipeService
     {
         //public int AddRecipe(Recipe recipe, int accountId, ICollection<RecipeDetail> details);
+        public Recipe GetRecipeByID(int id);
         public ICollection<Recipe> GetPostsByName(string name, Func<IQueryable<Recipe>, ICollection<Recipe>> options = null,
             string includeProperties = null);
         public ICollection<Recipe> GetNewestPosts(int quantity);

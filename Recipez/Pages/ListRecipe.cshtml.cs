@@ -29,7 +29,7 @@ namespace Recipez.Pages
             {
                 PageIndex = id.Value;
             }
-            List<Recipe> recipes = (List<Recipe>)recipezService.recipeService.GetAll();
+            List<Recipe> recipes = recipezService.recipeService.GetAll().Where(r=>r.Status==1).ToList();
             paging = PaginatedList<Recipe>.Create(recipes.AsQueryable<Recipe>(),PageIndex,PAGESIZE);
         }
     }

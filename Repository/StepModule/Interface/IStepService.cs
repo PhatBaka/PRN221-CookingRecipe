@@ -10,7 +10,7 @@ namespace Repository.StepModule.Interface
         public void AddNewStep(Step newStep);
 
 
-        public Step GetStepById(int CustomerId);
+        public ICollection<Step> GetStepByRecipeId(int RecipeId);
 
 
         public Task UpdateStep(Step StepUpdate);

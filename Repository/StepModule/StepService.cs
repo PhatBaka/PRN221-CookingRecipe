@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System;
 using Repository.StepModule.Interface;
 using DataAccess.Models;
+using System.Linq;
 
 namespace Repository.StepModule
 {
@@ -25,12 +26,12 @@ namespace Repository.StepModule
 
         public ICollection<Step> GetAll()
         {
-            throw new NotImplementedException();
+            return _StepRepository.GetAll();
         }
 
-        public Step GetStepById(int CustomerId)
+        public ICollection<Step> GetStepByRecipeId(int recipeId)
         {
-            throw new NotImplementedException();
+            return _StepRepository.GetAll().Where(s=>s.RecipeId==recipeId).ToList();
         }
 
         public Task UpdateStep(Step StepUpdate)
