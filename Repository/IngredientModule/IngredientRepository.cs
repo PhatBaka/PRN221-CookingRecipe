@@ -8,7 +8,10 @@ namespace Repository.IngredientModule
     public class IngredientRepository : Repository<Ingredient>, IIngredientRepository
     {
         private readonly CookingRecipeContext _db;
-
+        public IngredientRepository() : base(new CookingRecipeContext())
+        {
+            _db = new CookingRecipeContext();
+        }
         public IngredientRepository(CookingRecipeContext db) : base(db)
         {
             _db = db;

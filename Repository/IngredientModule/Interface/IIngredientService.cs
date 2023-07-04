@@ -7,8 +7,10 @@ namespace Repository.IngredientModule.Interface
 {
     public interface IIngredientService
     {
+        public Ingredient AddIngredient(Ingredient newIngredient);
         public Task<Ingredient> AddNewIngredient(Ingredient newIngredient);
 
+        public Ingredient GetIngredientByName(string name);
 
         public Ingredient GetIngredientById(int CustomerId);
 

@@ -9,15 +9,18 @@ namespace Repository.StepModule
     public class StepService : IStepService
     {
         private readonly IStepRepository _StepRepository;
-
+        public StepService()
+        {
+            _StepRepository = new StepRepository();
+        }
         public StepService(IStepRepository StepRepository)
         {
             _StepRepository = StepRepository;
         }
 
-        public Task<Step> AddNewStep(Step newStep)
+        public void AddNewStep(Step newStep)
         {
-            throw new NotImplementedException();
+            _StepRepository.Add(newStep);
         }
 
         public ICollection<Step> GetAll()

@@ -14,7 +14,7 @@ namespace Repository.Utils
 
         private readonly CookingRecipeContext _db;
         internal readonly DbSet<T> DbSet;
-
+        
         public Repository(CookingRecipeContext db)
         {
             _db = db;

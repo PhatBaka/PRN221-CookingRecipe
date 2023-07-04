@@ -22,9 +22,7 @@ namespace DataAccess.Models
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Favorite> Favorites { get; set; }
         public virtual DbSet<Ingredient> Ingredients { get; set; }
-        public virtual DbSet<IngredientCaloriesPerUnit> IngredientCaloriesPerUnits { get; set; }
         public virtual DbSet<IngredientCategory> IngredientCategories { get; set; }
-        public virtual DbSet<IngredientUnit> IngredientUnits { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }
         public virtual DbSet<MealCategory> MealCategories { get; set; }
         public virtual DbSet<MealDetail> MealDetails { get; set; }
@@ -36,8 +34,9 @@ namespace DataAccess.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional:true,reloadOnChange:true);
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             IConfigurationRoot configuration = builder.Build();
             optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         }
@@ -112,38 +111,17 @@ namespace DataAccess.Models
 
                 entity.Property(e => e.IngredientCategoryId).HasColumnName("IngredientCategoryID");
 
+                entity.Property(e => e.IngredientName)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.NumberOfcalorie).HasColumnName("NumberOFCalorie");
+
                 entity.HasOne(d => d.IngredientCategory)
                     .WithMany(p => p.Ingredients)
                     .HasForeignKey(d => d.IngredientCategoryId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Ingredient_IngredientCategory");
-            });
-
-            modelBuilder.Entity<IngredientCaloriesPerUnit>(entity =>
-            {
-                entity.HasKey(e => new { e.IngredientId, e.UnitId });
-
-                entity.ToTable("IngredientCaloriesPerUnit");
-
-                entity.Property(e => e.IngredientId)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("IngredientID");
-
-                entity.Property(e => e.UnitId).HasColumnName("UnitID");
-
-                entity.Property(e => e.CaloriesPerUnit).HasColumnType("decimal(18, 0)");
-
-                entity.HasOne(d => d.Ingredient)
-                    .WithMany(p => p.IngredientCaloriesPerUnits)
-                    .HasForeignKey(d => d.IngredientId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_IngredientCaloriesPerUnit_Ingredient");
-
-                entity.HasOne(d => d.Unit)
-                    .WithMany(p => p.IngredientCaloriesPerUnits)
-                    .HasForeignKey(d => d.UnitId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_IngredientCaloriesPerUnit_IngredientUnit");
             });
 
             modelBuilder.Entity<IngredientCategory>(entity =>
@@ -155,18 +133,6 @@ namespace DataAccess.Models
                 entity.Property(e => e.IngredientCategoryName)
                     .IsRequired()
                     .HasMaxLength(50);
-            });
-
-            modelBuilder.Entity<IngredientUnit>(entity =>
-            {
-                entity.HasKey(e => e.UnitId)
-                    .HasName("PK__Ingredie__44F5EC95C9742AB7");
-
-                entity.ToTable("IngredientUnit");
-
-                entity.Property(e => e.UnitId).HasColumnName("UnitID");
-
-                entity.Property(e => e.UnitName).HasMaxLength(50);
             });
 
             modelBuilder.Entity<Meal>(entity =>
@@ -263,7 +229,9 @@ namespace DataAccess.Models
             {
                 entity.ToTable("Recipe");
 
-                entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+                entity.Property(e => e.RecipeId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("RecipeID");
 
                 entity.Property(e => e.AccountId).HasColumnName("AccountID");
 
@@ -271,6 +239,8 @@ namespace DataAccess.Models
                     .IsRequired()
                     .HasMaxLength(10)
                     .IsFixedLength(true);
+
+                entity.Property(e => e.Img).HasMaxLength(50);
 
                 entity.Property(e => e.RecipeName)
                     .IsRequired()
@@ -293,11 +263,7 @@ namespace DataAccess.Models
 
                 entity.Property(e => e.IngredientId).HasColumnName("IngredientID");
 
-                entity.Property(e => e.Note).HasMaxLength(100);
-
-                entity.Property(e => e.Qty).HasColumnType("decimal(18, 2)");
-
-                entity.Property(e => e.UnitId).HasColumnName("UnitID");
+                entity.Property(e => e.Quantity).HasMaxLength(50);
 
                 entity.HasOne(d => d.Ingredient)
                     .WithMany(p => p.RecipeDetails)
@@ -310,11 +276,6 @@ namespace DataAccess.Models
                     .HasForeignKey(d => d.RecipeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_RecipeDetail_Recipe");
-
-                entity.HasOne(d => d.Unit)
-                    .WithMany(p => p.RecipeDetails)
-                    .HasForeignKey(d => d.UnitId)
-                    .HasConstraintName("FK_RecipeDetail_IngredientUnit");
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -330,13 +291,13 @@ namespace DataAccess.Models
 
             modelBuilder.Entity<Step>(entity =>
             {
-                entity.HasKey(e => new { e.StepIndex, e.RecipeId });
-
                 entity.ToTable("Step");
 
-                entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
+                entity.Property(e => e.StepId).HasColumnName("StepID");
 
                 entity.Property(e => e.Description).IsRequired();
+
+                entity.Property(e => e.RecipeId).HasColumnName("RecipeID");
 
                 entity.Property(e => e.StepName)
                     .IsRequired()

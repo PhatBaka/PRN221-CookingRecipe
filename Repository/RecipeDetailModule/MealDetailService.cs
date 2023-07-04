@@ -17,7 +17,10 @@ namespace Repository.RecipeDetailModule
         private readonly IRecipeDetailRepository _RecipeDetailRepository;
         private readonly IIngredientRepository _productRepository;
         private readonly IRecipeDetailRepository _postRepository;
-
+        public RecipeDetailService()
+        {
+            _RecipeDetailRepository = new RecipeDetailRepository();
+        }
         public RecipeDetailService(IRecipeDetailRepository RecipeDetailRepository, IIngredientRepository productRepository, IRecipeDetailRepository postRepository)
         {
             _RecipeDetailRepository = RecipeDetailRepository;

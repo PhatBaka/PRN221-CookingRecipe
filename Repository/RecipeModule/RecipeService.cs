@@ -7,6 +7,8 @@ using Repository.MealCategoryModule.Interface;
 using DataAccess.Models;
 using Repository.MealDetailModule.Interface;
 using Repository.RecipeDetailModule.Interface;
+using Repository.RecipeDetailModule;
+using System.Security.Cryptography;
 
 namespace Repository.RecipeModule
 {
@@ -16,7 +18,11 @@ namespace Repository.RecipeModule
         private readonly IRecipeDetailService _MealDetailRepository;
         private readonly IMealCategoryService _categoryRepository;
 
-
+        public RecipeService()
+        {
+            _RecipeRepository = new RecipeRepository();
+            _MealDetailRepository = new RecipeDetailService();
+        }
         public RecipeService(IRecipeRepository eventRepository, IMealCategoryService categoryRepository, IRecipeDetailService MealDetailRepository)
         {
             _RecipeRepository = eventRepository;
@@ -73,11 +79,18 @@ namespace Repository.RecipeModule
             return null;
         }
 
-        public void AddNewPost(Recipe newEvent, string uid, ICollection<RecipeDetail> details)
+        public int AddNewPost(Recipe newEvent, string uid, ICollection<RecipeDetail> details)
         {
             int _uid = int.Parse(uid);
             //newEvent.CreatedDate = DateTime.Now;
-            newEvent.RecipeId = _RecipeRepository.GetMaxID()+ 1;
+            if (GetAll()!=null)
+            {
+                newEvent.RecipeId = _RecipeRepository.GetMaxID() + 1;
+            }
+            else
+            {
+                newEvent.RecipeId = 1;
+            }    
             newEvent.AccountId = _uid;
             //newEvent.Status = true;
             //newEvent.Reaction = 0;
@@ -88,12 +101,29 @@ namespace Repository.RecipeModule
                 detail.RecipeId = newEvent.RecipeId;
             }
             _MealDetailRepository.AddNewRecipeDetails(details);
-
+            return newEvent.RecipeId;
         }
-        public void AddRecipe(Recipe recipe)
+        //public int AddRecipe(Recipe recipe, int accountId, ICollection<RecipeDetail> details)
+        //{
+        //    int check= RandomNumberGenerator.GetInt32(int.MaxValue);
+        //    while (GetRecipeByID(check) != null)
+        //    {
+        //        check++;
+        //    }
+        //    recipe.RecipeId = check;
+        //    recipe.AccountId = accountId;
+        //    _RecipeRepository.Add(recipe);
+        //    foreach (RecipeDetail detail in details)
+        //    {
+        //        //detail.Product = null;
+        //        detail.RecipeId = recipe.RecipeId;
+        //    }
+        //    _MealDetailRepository.AddNewRecipeDetails(details);
+        //    return recipe.RecipeId;
+        //}
+        public Recipe GetRecipeByID(int id)
         {
-            recipe.RecipeId = _RecipeRepository.GetMaxID();
-            _RecipeRepository.Add(recipe);
+            return _RecipeRepository.GetAll().FirstOrDefault(r=>r.RecipeId==id);
         }
 
         public async Task UpdatePost(Recipe postUpdate)

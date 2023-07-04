@@ -13,6 +13,10 @@ namespace Repository.IngredientCategoryModule
     {
         private readonly CookingRecipeContext context;
 
+        public IngredientCategoryRepository():base(new CookingRecipeContext())
+        {
+            context = new CookingRecipeContext();
+        }
         public IngredientCategoryRepository(CookingRecipeContext db) : base(db)
         {
             context = db;

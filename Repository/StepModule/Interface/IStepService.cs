@@ -7,7 +7,7 @@ namespace Repository.StepModule.Interface
 {
     public interface IStepService
     {
-        public Task<Step> AddNewStep(Step newStep);
+        public void AddNewStep(Step newStep);
 
 
         public Step GetStepById(int CustomerId);

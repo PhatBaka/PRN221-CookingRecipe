@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -16,13 +17,14 @@ namespace DataAccess.Models
             Steps = new HashSet<Step>();
         }
 
-        public int RecipeId { get; set; }
+        public int RecipeId { get; set; }        
         public string RecipeName { get; set; }
         public string Difficulty { get; set; }
-        public double AmountOfCalorie { get; set; }
+        public double? AmountOfCalorie { get; set; }
         public int NumberOfStep { get; set; }
         public int Status { get; set; }
         public int AccountId { get; set; }
+        public string Img { get; set; }
 
         public virtual Account Account { get; set; }
         public virtual ICollection<Favorite> Favorites { get; set; }

@@ -57,7 +57,9 @@ namespace Recipez
             //Recipe Detail Module
             services.AddScoped<IRecipeDetailRepository, RecipeDetailRepository>();
             services.AddScoped<IRecipeDetailService, RecipeDetailService>();
-            
+            services.AddDbContext<CookingRecipeContext>(
+                opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
             {
                 opt.LoginPath = "/Authentication/Login";

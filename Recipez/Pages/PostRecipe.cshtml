@@ -23,7 +23,8 @@
         var listIngredientID = `1`;
         var listStepID=`1`;
         function addIngredient() {
-            ingredientRow+=1;            
+            ingredientRow+=1;
+            var ingredientCategoryHtml = document.getElementById("ingredientCategory1");
             var html = `<div class="row" id="ingredientRowID`+ ingredientRow + `">
             <div class ="col-12" style="font-weight:bold"> Ingredient: </div>
                                         <br/>
@@ -34,10 +35,8 @@
                                                             <input type="text" class="form-control" name="quantity`+ ingredientRow + `" id="quantity` + ingredientRow + `" placeholder="Quantity">
                                         </div>
                                                 <div class="col-12">
-                                                            <select class="form-control" name="ingredientCategory`+ ingredientRow + `" id="ingredientCategory` + ingredientRow + `">
-                                                <option value="Egg">Egg</option>
-                                                <option value="Beef">Beef</option>
-                                                <option value="Vegetable">Vegetable</option>
+                                                <select class="form-control" name="ingredientCategory`+ ingredientRow + `" id="ingredientCategory` + ingredientRow + `">
+                                                    `+ingredientCategoryHtml.innerHTML+`                
                                             </select>
                                         </div>
                                         <button type="button" onclick="removeIngredient(`+ ingredientRow + `)">Remove ingredient</button>
@@ -62,7 +61,7 @@
             stepRow+=1;
             var html = `<div class="row" id="stepRowID`+stepRow+`">
                                         <div class="col-12">
-                                                    <input type="text" class="form-control" id="Step`+stepRow+`" placeholder="Step`+stepRow+`">
+                                                                    <input type="text" class="form-control" name="stepName`+stepRow+`" id="stepName`+ stepRow + `" placeholder="Step` + stepRow + `">
                                         </div>
                                         <div class="col-12">
                                                                     <textarea name="description`+stepRow+`" class="form-control" id="description`+stepRow+`" cols="30" rows="10" placeholder="Description`+stepRow+`"></textarea>
@@ -84,10 +83,10 @@
         }
         function addHidden(){
             var listIngredientIdDiv = document.getElementById(`listIngredientIdDiv`);
-            var listIngredientHtml = `<input type="hidden" asp-for="listIngredientID" id="listIngredientId" value="` + listIngredientID + `"/>`;
+            var listIngredientHtml = `<input type="hidden" name="listIngredientId" id="listIngredientId" value="` + listIngredientID + `"/>`;
             listIngredientIdDiv.innerHTML+=listIngredientHtml;
             var listStepIdDiv = document.getElementById(`listStepIdDiv`);
-            var listStepHtml = `<input type="hidden" asp-for="listStepID" id="listStepId" value="` + listStepID + `"/>`;
+            var listStepHtml = `<input type="hidden" name="listStepId" id="listStepId" value="` + listStepID + `"/>`;
             listStepIdDiv.innerHTML+=listStepHtml;
         }
     </script>
@@ -218,37 +217,61 @@
                             <div class="row">
                                 <div class="col-12 col-lg-6">
                                     <input asp-for="recipe.RecipeName" type="text" class="form-control" id="recipeName" placeholder="Recipe Name">
+                                    @if (ViewData["RecipeNameError"] != null)
+                                    {
+                                        <span class="text-danger">@ViewData["RecipeNameError"]</span>
+                                    }
                                 </div>
                                 <div class="col-12 col-lg-6">
-                                    <input asp-for="recipe.Difficulty" type="text" class="form-control" id="difficulty" placeholder="Difficulty">
+                                    @*<input asp-for="recipe.Difficulty" type="text" class="form-control" id="difficulty" placeholder="Difficulty">*@
+                                    <select class="form-control" asp-for="recipe.Difficulty" id="difficulty">
+                                        <option value="Very Easy">Very Easy (less than 15 min)</option>
+                                        <option value="Easy">Easy (less than 30 min)</option>
+                                        <option value="Normal">Normal (less than 1 hour)</option>
+                                        <option value="Hard">Hard (more than 1 hour)</option>
+                                    </select>
                                 </div>                                
-                                
+                                <div class="col-12">
+                                    <input asp-for="recipe.Img" type="text" class="form-control" id="recipeImg" placeholder="Image link">
+                                </div>
                             </div>
                             <div class="row" >
                                 <div class ="col-12" style="font-weight:bold"> Ingredient:</div>
                                 <br/>
                                 <div class="col-12 col-lg-6">
                                     <input type="text" class="form-control" name="ingredientName1" id="ingredientName1" placeholder="Ingredient Name">
+                                    @if (ViewData["IngredientNameError"] != null)
+                                    {
+                                        <span class="text-danger">@ViewData["IngredientNameError"]</span>
+                                    }
                                 </div>
                                 <div class="col-12 col-lg-6">
                                     <input type="text" class="form-control" name="quantity1" id="quantity1" placeholder="Quantity">
+                                    @if (ViewData["QuantityError"] != null)
+                                    {
+                                        <span class="text-danger">@ViewData["QuantityError"]</span>
+                                    }
                                 </div>
                                 <div class="col-12">                                    
-                                    <select class="form-control" name="ingredientCategory1" id="ingredientCategory1" asp-items="ViewBag.CategoryId">
-                                        <option value="Egg">Egg</option>
-                                        <option value="Beef">Beef</option>
-                                        <option value="Vegetable">Vegetable</option>
-                                    </select>
+                                    <select class="form-control" name="ingredientCategory1" id="ingredientCategory1" asp-items="ViewBag.IngredientCategoryId"></select>
                                 </div>
                             </div>
                             <div id="ingredientRow"></div>                            
                             <div class="col-12 text-center"><button type="button" onclick="addIngredient()">Add ingredient</button></div>
                             <div class="row">
                                 <div class="col-12">
-                                    <input type="text" class="form-control" id="Step1" placeholder="Step1">
+                                    <input type="text" class="form-control" name="stepName1" id="stepName1" placeholder="Step1">
+                                    @if (ViewData["StepNameError"] != null)
+                                    {
+                                        <span class="text-danger">@ViewData["StepNameError"]</span>
+                                    }
                                 </div>
                                 <div class="col-12">
                                     <textarea name="description1" class="form-control" id="description1" cols="30" rows="10" placeholder="Description1"></textarea>
+                                    @if (ViewData["DescriptionError"] != null)
+                                    {
+                                        <span class="text-danger">@ViewData["DescriptionError"]</span>
+                                    }
                                 </div>                                                                                                
                             </div>
                             <div id="stepRow"></div>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -9,16 +10,15 @@ namespace DataAccess.Models
     {
         public Ingredient()
         {
-            IngredientCaloriesPerUnits = new HashSet<IngredientCaloriesPerUnit>();
             RecipeDetails = new HashSet<RecipeDetail>();
         }
 
-        public int IngredientId { get; set; }
+        public int IngredientId { get; set; }        
         public string IngredientName { get; set; }
+        public double? NumberOfcalorie { get; set; }
         public int IngredientCategoryId { get; set; }
 
         public virtual IngredientCategory IngredientCategory { get; set; }
-        public virtual ICollection<IngredientCaloriesPerUnit> IngredientCaloriesPerUnits { get; set; }
         public virtual ICollection<RecipeDetail> RecipeDetails { get; set; }
     }
 }

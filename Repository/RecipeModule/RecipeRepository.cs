@@ -12,7 +12,10 @@ namespace Repository.RecipeModule
     public class RecipeRepository : Repository<Recipe>, IRecipeRepository
     {
         private readonly CookingRecipeContext _db;
-
+        public RecipeRepository():base(new CookingRecipeContext())
+        {
+            _db = new CookingRecipeContext();
+        }
         public RecipeRepository(CookingRecipeContext db) : base(db)
         {
             _db = db;

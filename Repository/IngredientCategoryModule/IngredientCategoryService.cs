@@ -11,6 +11,10 @@ namespace Repository.IngredientCategoryModule
     public class IngredientCategoryService : IIngredientCategoryService
     {
         private readonly IIngredientCategoryRepository repository;
+        public IngredientCategoryService()
+        {
+            repository = new IngredientCategoryRepository();
+        }
         public IngredientCategoryService(IIngredientCategoryRepository ingredientCategoryRepository)
         {
             repository = ingredientCategoryRepository;
