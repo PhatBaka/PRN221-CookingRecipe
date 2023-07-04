@@ -1,4 +1,4 @@
-﻿@page
+﻿@page 
 @model Recipez.Pages.ListRecipeModel
 @{
 }
@@ -132,14 +132,43 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading">
-                        <h3>The best Recipes</h3>
+                        <h3>All Recipes</h3>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            
+                @if(Model!=null){
+                <div class="row">
+                    @foreach(var item in Model.paging){
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-best-receipe-area mb-30">                                
+                                @if(item.Img!=null){
+                                    <img src="@item.Img" alt="">
+                                }
+                                else{
+                                    <img src="https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg" alt="">
+                                }
+                                <div class="receipe-content">
+                                    <a asp-page="./RecipeDetail" asp-route-id="@item.RecipeId">
+                                        <h5>@item.RecipeName</h5>
+                                    </a>                                    
+                                </div>
+                            </div>
+                        </div>
+                    }
+                 </div>
+                    <ul class="pagination">
+                    @for (int i = 1; i <= Model.paging.TotalPages; i++){                        
+                        <li style="padding:10px"><a asp-page="./ListRecipe" asp-route-id="@i">@i</a></li>                        
+                    }
+                    </ul>                                            
+                }
+                else{
+                    <span>No recipe</span>
+                }
                 <!-- Single Best Receipe Area -->
-                <div class="col-12 col-sm-6 col-lg-4">
+                @*<div class="col-12 col-sm-6 col-lg-4">
                     <div class="single-best-receipe-area mb-30">
                         <img src="image/bg-img/r1.jpg" alt="">
                         <div class="receipe-content">
@@ -250,8 +279,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div>*@            
         </div>
     </section>
     <!-- ##### Best Receipe Area End ##### -->
@@ -271,7 +299,7 @@
                     </div>
                     <!-- Footer Logo -->
                     <div class="footer-logo">
-                        <a href="index.html"><img src="image/core-img/logo.png" alt=""></a>
+                        <a href="/Home"><img src="image/core-img/logo.png" alt=""></a>
                     </div>
                     <!-- Copywrite -->
                     <p>

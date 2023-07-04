@@ -74,7 +74,7 @@ namespace Repository.RecipeModule
 
         public ICollection<Recipe> GetAll()
         {
-            ICollection<Recipe> posts = _RecipeRepository.GetAll(includeProperties: "Category");
+            ICollection<Recipe> posts = _RecipeRepository.GetAll();
             if (posts != null) return posts.ToList();
             return null;
         }
